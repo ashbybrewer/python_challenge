@@ -23,5 +23,36 @@ for row in data:
         candidates_votes[candidate_name] = 1  # If the candidate wasn't in our dictionary, add them with 1 vote
     else:
         candidates_votes[candidate_name] += 1  # If they were, increment their vote count
+
 #percentage of votes for each candidate 
-print(candidates_votes)
+candidates_percentages ={}
+for candidate, votes in candidates_votes.items():
+    percentage=(votes/total_votes)*100
+    candidates_percentages[candidate]=percentage
+
+#determine winner
+winner = max(candidates_votes, key=candidates_votes.get) 
+
+#print and export outcomes:
+results = (
+    "Election Results\n"
+    "-------------------------\n"
+    f"Total Votes: {total_votes}\n"
+    "-------------------------\n"
+)
+
+for candidate in candidates_votes:
+    results += f"{candidate}: {candidates_percentages[candidate]:.3f}% ({candidates_votes[candidate]})\n"
+    
+results += (
+    "-------------------------\n"
+    f"Winner: {winner}\n"
+    "-------------------------"
+)
+
+# Print to terminal
+print(results)
+
+# Export to text file
+with open('analysis/results.txt', 'w') as output_file:
+    output_file.write(results)
