@@ -1,19 +1,26 @@
-Sources: 
+# PyBank & PyPoll — Python Fundamentals, Real Ledgers
 
-I worked with a group of other students 9/19/2023 as well as 9/20/2023
-All sources were used from 9/19/2023-9/20/2023.
+Two small command-line analyzers built with the Python standard library only (`csv`, `os`) — no pandas allowed. The point was to do the bookkeeping by hand: accumulators, dictionaries, edge-aware loops.
 
-Used class notes, slides, assignments, and lectures as refrences.
+## PyBank — `PyBank/main.py`
+Reads 86 months of company P&L (`budget_data.csv`) and reports:
 
-Used this for help importing a csv headers: 
-https://stackoverflow.com/questions/3428532/how-to-import-a-csv-file-using-python-with-headers-intact-where-first-column-is
+- Total months: **86** · Net total: **$22,564,198**
+- Average month-over-month change: **−$8,311.11**
+- Greatest increase: **Aug-2016 (+$1,862,002)** · Greatest decrease: **Feb-2014 (−$1,825,558)**
 
-Used this to help print each result to a new line: https://stackoverflow.com/questions/11497376/how-do-i-specify-new-lines-in-a-string-in-order-to-write-multiple-lines-to-a-fil
+## PyPoll — `PyPoll/main.py`
+Tallies a 369,711-ballot election (`election_data.csv`) into per-candidate counts and percentages:
 
-Used this for help with printing results: https://stackoverflow.com/questions/67132845/how-to-print-a-multiline-string-to-a-file-with-variables
+- **Diana DeGette — 73.81% (272,892) — winner**, Charles Casper Stockham 23.05%, Raymon Anthony Doane 3.14%
 
-Limiting a float value to 2 decimal places in python: https://stackoverflow.com/questions/455612/limiting-floats-to-two-decimal-points
+Both scripts print to terminal and write their results to `analysis/*.txt`.
 
-There are a few of these out there that are similar assigments from previous years, but this is the one I understood best, and used to check mine against and use as a reference: https://github.com/misskoder/python-challenge
+## Run it
+```bash
+cd PyBank  && python main.py
+cd PyPoll  && python main.py
+```
 
-I also used ChatGPT to help me with debugging, organizing, and cleaning code.
+---
+*Built during the University of Texas Data Analysis Boot Camp (2023–24), with help from classmates, tutors, and AI tools — disclosed then, kept honest now.*
